@@ -4,3 +4,10 @@ LineLength:
   Max: 99
 Style/FrozenStringLiteralComment:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+AllCops:
+  Exclude:
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
