@@ -13,7 +13,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rubocop', '~> 0.59.0', require: false
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.4.3'
+gem 'devise_token_auth', '~> 0.2.0'
 
 group :development, :test do
   gem 'faker', '~> 1.9.1'
