@@ -30,6 +30,7 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers', '~> 3.1.2'
   gem 'database_cleaner'
 end
 

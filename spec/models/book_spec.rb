@@ -1,45 +1,21 @@
 require 'rails_helper'
 
 describe Book do
-  it 'is valid with valid attributes' do
-    book = build(:book)
-
-    expect(book).to be_valid
+  subject do
+    build(:book)
   end
 
-  it 'is not valid without a genre' do
-    book = build(:book, genre: nil)
+  it { is_expected.to be_valid }
 
-    expect(book).not_to be_valid
-  end
+  it { is_expected.to validate_presence_of(:genre) }
 
-  it 'is not valid without an author' do
-    book = build(:book, author: nil)
+  it { is_expected.to validate_presence_of(:author) }
 
-    expect(book).not_to be_valid
-  end
+  it { is_expected.to validate_presence_of(:image) }
 
-  it 'is not valid without an image' do
-    book = build(:book, image: nil)
+  it { is_expected.to validate_presence_of(:title) }
 
-    expect(book).not_to be_valid
-  end
+  it { is_expected.to validate_presence_of(:publisher) }
 
-  it 'is not valid without a title' do
-    book = build(:book, title: nil)
-
-    expect(book).not_to be_valid
-  end
-
-  it 'is not valid without a publisher' do
-    book = build(:book, publisher: nil)
-
-    expect(book).not_to be_valid
-  end
-
-  it 'is not valid without a year' do
-    book = build(:book, year: nil)
-
-    expect(book).not_to be_valid
-  end
+  it { is_expected.to validate_presence_of(:year) }
 end
