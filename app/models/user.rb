@@ -2,5 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :rents, dependent: :destroy
+  has_many :rents, dependent: :nullify
+
+  include DeviseTokenAuth::Concerns::User
 end
