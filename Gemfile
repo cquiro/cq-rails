@@ -15,6 +15,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rubocop', '~> 0.59.0', require: false
 gem 'devise', '~> 4.4.3'
 gem 'devise_token_auth', '~> 0.2.0'
+gem 'versionist', '~> 1.7.0'
+gem 'active_model_serializers', '~> 0.10.7'
 
 group :development, :test do
   gem 'faker', '~> 1.9.1'
