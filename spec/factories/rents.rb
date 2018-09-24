@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :rent do
     user
     book
-    start_date { '2018-09-24' }
-    end_date { '2018-09-24' }
+    start_date { Faker::Date.forward(1) }
+    end_date { start_date + 5.days }
   end
 end
