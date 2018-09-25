@@ -14,7 +14,7 @@ describe Api::V1::BooksController do
 
     it 'responds with the books list in json format' do
       expected = ActiveModel::Serializer::CollectionSerializer.new(
-        books, each_serializer: Api::V1::BookSerializer, root: false
+        books, each_serializer: BookSerializer, root: false
       ).to_json
       expect(response.body.to_json) =~ JSON.parse(expected)
     end
@@ -30,10 +30,9 @@ describe Api::V1::BooksController do
     it { expect(response).to have_http_status(:ok) }
 
     it 'responds with the book in json format' do
-      expect(response.body).to eq Api::V1::BookSerializer.new(
+      expect(response.body).to eq BookSerializer.new(
         book, root: false
       ).to_json
     end
-
   end
 end
