@@ -1,8 +1,10 @@
 module Api
   module V1
     class BooksController < ApplicationController
+      include Wor::Paginate
+
       def index
-        render json: books, each_serializer: Api::V1::BookSerializer, status: :ok
+        render_paginated books, each_serializer: Api::V1::BookSerializer, status: :ok
       end
 
       def show
