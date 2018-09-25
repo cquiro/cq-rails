@@ -1,8 +1,6 @@
 module Api
   module V1
-    class BooksController < ApplicationController
-      include Wor::Paginate
-
+    class BooksController < ApiController
       def index
         render_paginated books, each_serializer: Api::V1::BookSerializer, status: :ok
       end
@@ -14,11 +12,15 @@ module Api
       private
 
       def book
-        @book ||= Book.find(params[:id])
+        Book.find(book_params[:id])
       end
 
       def books
-        @books ||= Book.all
+        Book.all
+      end
+
+      def book_params
+        params.permit(:id)
       end
     end
   end
