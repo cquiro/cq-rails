@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :show]
 
     resources :users, only: :none do
-      resources :rents, only: [:index]
+      resources :rents, only: [:index, :create]
     end
   end
 end
