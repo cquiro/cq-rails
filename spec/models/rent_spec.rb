@@ -16,4 +16,15 @@ describe Rent do
 
     it { is_expected.not_to be_valid }
   end
+
+  context 'when a new rent is created' do
+    let!(:user) { create(:user) }
+    let!(:book) { create(:book) }
+
+    it 'updates rents_count in the user model' do
+      expect {
+        Rent.create(attributes_for(:rent).merge(user_id: user.id, book_id: book.id))
+      }.to change { User.find(user.id).rents_count }.by(1)
+    end
+  end
 end
