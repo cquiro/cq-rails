@@ -6,9 +6,7 @@ describe Api::V1::BooksController do
   describe 'GET #index' do
     let!(:books) { create_list(:book, 3) }
 
-    before do
-      get :index
-    end
+    before { get :index }
 
     it { expect(response).to have_http_status(:ok) }
 
@@ -23,9 +21,7 @@ describe Api::V1::BooksController do
   describe 'GET #show' do
     let!(:book) { create(:book) }
 
-    before do
-      get :show, params: { id: book.id }
-    end
+    before { get :show, params: { id: book.id } }
 
     it { expect(response).to have_http_status(:ok) }
 
