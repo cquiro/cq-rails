@@ -1,4 +1,4 @@
-Book.create([
+Book.create!([
   {
     genre: 'Non-fiction',
     author: 'Yuval Noah Harari',
