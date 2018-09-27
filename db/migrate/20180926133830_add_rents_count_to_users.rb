@@ -8,11 +8,6 @@ class AddRentsCountToUsers < ActiveRecord::Migration[5.2]
   end
 
   def data
-    execute <<-SQL.squish
-      UPDATE users
-      SET rents_count = (SELECT count(*)
-                         FROM rents
-                         WHERE rents.user_id = users.id)
-    SQL
+    User.find_each { |u| User.reset_counters(u.id, :rents) }
   end
 end
