@@ -4,7 +4,7 @@ describe Api::V1::RentsController do
   include_context 'Authenticated User'
 
   describe 'GET #index' do
-    let!(:rents) { create_list(:rent, 3, user: user) }
+    let(:rents) { create_list(:rent, 3, user: user) }
 
     before { get :index, params: { user_id: user.id } }
 
@@ -20,8 +20,8 @@ describe Api::V1::RentsController do
   end
 
   describe 'POST #create' do
-    let!(:book) { create(:book) }
-    let!(:rent_attrs) { attributes_for(:rent) }
+    let(:book) { create(:book) }
+    let(:rent_attrs) { attributes_for(:rent) }
 
     before do
       post :create, params: {
