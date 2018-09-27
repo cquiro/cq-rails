@@ -6,6 +6,8 @@ module Api
       end
 
       def create
+        new_rent = user.rents.new(create_rent_params)
+
         if new_rent.save
           render json: new_rent, serializer: RentSerializer, status: :created
         else
@@ -14,10 +16,6 @@ module Api
       end
 
       private
-
-      def new_rent
-        @new_rent ||= user.rents.new(create_rent_params)
-      end
 
       def rents
         user.rents
