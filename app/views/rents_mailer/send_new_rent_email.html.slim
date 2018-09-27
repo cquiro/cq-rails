@@ -1,0 +1,28 @@
+p
+  | ¡Hola, #{@user.first_name}!
+
+p
+  | Se ha registrado una nueva renta a tu nombre con fecha #{@rent.created_at.strftime("%F")}.
+
+p
+  | Los datos del libro que rentaste son:
+ul
+  li
+    | Título: #{@book.title}
+  li
+    | Autor: #{@book.author}
+  li
+    | Género: #{@book.genre}
+  li
+    | Editorial: #{@book.publisher}
+  li
+    | Año de publicación: #{@book.year}
+
+p
+  | Recuerda que puedes tener el libro desde #{@rent.start_date.strftime("%F")} y debes retornarlo a
+  más tardar el #{@rent.end_date.strftime("%F")}
+
+p
+  | ¡Saludos!
+  br
+  | El equipo de WBooks
