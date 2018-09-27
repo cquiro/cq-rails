@@ -18,6 +18,7 @@ gem 'devise_token_auth', '~> 0.2.0'
 gem 'versionist', '~> 1.7.0'
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'wor-paginate', '~> 0.1.4'
+gem 'sidekiq', '~> 4.1.2'
 
 group :development, :test do
   gem 'faker', '~> 1.9.1'
