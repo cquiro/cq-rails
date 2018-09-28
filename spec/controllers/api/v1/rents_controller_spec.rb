@@ -15,7 +15,7 @@ describe Api::V1::RentsController do
         rents, each_serializer: RentSerializer, root: false
       ).to_json
 
-      expect(response_body.to_json) =~ JSON.parse(expected)
+      expect(response_body['page'].to_json).to eq expected
     end
   end
 
