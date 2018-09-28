@@ -1,28 +1,27 @@
 p
-  | ¡Hola, #{@user.first_name}!
+  = t('rents_mailer.new_rent.hello', first_name: @user.first_name)
 
 p
-  | Se ha registrado una nueva renta a tu nombre con fecha #{@rent.created_at.strftime("%F")}.
+  = t('rents_mailer.new_rent.date', rent_date: @rent.created_at.strftime("%F"))
 
 p
-  | Los datos del libro que rentaste son:
+  = t('rents_mailer.new_rent.book.details')
 ul
   li
-    | Título: #{@book.title}
+    = t('rents_mailer.new_rent.book.title', title: @book.title)
   li
-    | Autor: #{@book.author}
+    = t('rents_mailer.new_rent.book.author', author: @book.author)
   li
-    | Género: #{@book.genre}
+    = t('rents_mailer.new_rent.book.genre', genre: @book.genre)
   li
-    | Editorial: #{@book.publisher}
+    = t('rents_mailer.new_rent.book.publisher', publisher: @book.publisher)
   li
-    | Año de publicación: #{@book.year}
+    = t('rents_mailer.new_rent.book.year', year: @book.year)
 
 p
-  | Recuerda que puedes tener el libro desde #{@rent.start_date.strftime("%F")} y debes retornarlo 
-  | a más tardar el #{@rent.end_date.strftime("%F")}
-
+  = t('rents_mailer.rent_dates', start_date: @rent.start_date.strftime("%F"),
+                                 end_date: @rent.end_date.strftime("%F"))
 p
-  | ¡Saludos!
+  = t('rents_mailer.regards')
   br
-  | El equipo de WBooks
+  = t('rents_mailer.signature')
