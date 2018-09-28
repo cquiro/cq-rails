@@ -15,7 +15,7 @@ describe Api::V1::RentsController do
         rents, each_serializer: RentSerializer, root: false
       ).to_json
 
-      expect(response_body.to_json) =~ JSON.parse(expected)
+      expect(response_body['page'].to_json).to eq expected
     end
   end
 
@@ -32,10 +32,16 @@ describe Api::V1::RentsController do
 
     it { expect(response).to have_http_status(:created) }
 
-    it 'responds with the serialized new rent' do
-      expect(response_body['start_date'].to_date).to eq rent_attrs[:start_date]
+    it 'returns the correct book' do
       expect(response_body['book']['id']).to eq book.id
+    end
+
+    it 'returns the correct user' do
       expect(response_body['user']['id']).to eq user.id
+    end
+
+    it 'returns a rent with the rent_attrs' do
+      expect(response_body['start_date'].to_date).to eq rent_attrs[:start_date]
     end
   end
 end
