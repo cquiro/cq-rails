@@ -68,12 +68,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    :user_name => Rails.application.credentials.mailtrap[:username],
-    :password => Rails.application.credentials.mailtrap[:password],
-    :address => 'smtp.mailtrap.io',
-    :domain => 'smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
+    user_name: Rails.application.credentials.mailtrap[:username],
+    password: Rails.application.credentials.mailtrap[:password],
+    address: Rails.application.credentials.mailtrap[:address],
+    domain: Rails.application.credentials.mailtrap[:domain],
+    port: '2525',
+    authentication: :cram_md5
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
