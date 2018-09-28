@@ -4,6 +4,6 @@ class RentsMailer < ApplicationMailer
     @user = @rent.user
     @book = @rent.book
 
-    mail(to: @user.email, subject: '¡Has rentado un libro!')
+    mail(to: @user.email, subject: t('rents_mailer.new_rent.subject'))
   end
 end

@@ -10,6 +10,7 @@ en:
         year: 'Year: %{year}'
       date: 'A new rent was registered to your name on %{rent_date}.'
       hello: 'Hello, %{first_name}!'
+      subject: 'You rented a book!'
     regards: 'Regards!'
     rent_dates: 'Remember you can keep the book from %{start_date} until %{end_date}.'
     signature: 'The WBooks Team'
