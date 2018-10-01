@@ -8,7 +8,7 @@ class AddRentsCountToUsers < ActiveRecord::Migration[5.2]
   end
 
   def reset_users_rents_counter
-    ids = Rent.all.map(&:user_id)
+    ids = Rent.find_each.map(&:user_id)
 
     ids.each do |user_id|
       User.reset_counters(user_id, :rents)
