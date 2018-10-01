@@ -9,7 +9,7 @@ module Api
       private
 
       def set_locale
-        I18n.locale = current_user.try(:locale) || I18n.default_locale
+        current_user&.locale || I18n.default_locale
       end
     end
   end
