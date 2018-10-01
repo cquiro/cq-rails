@@ -20,6 +20,7 @@ gem 'active_model_serializers', '~> 0.10.7'
 gem 'wor-paginate', '~> 0.1.4'
 gem 'sidekiq', '~> 4.1.2'
 gem 'slim-rails', github: 'slim-template/slim-rails'
+gem 'activeadmin', '~> 1.3.1'
 
 group :development, :test do
   gem 'faker', '~> 1.9.1'
