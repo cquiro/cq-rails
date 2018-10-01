@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :locale, presence: true
 
   include DeviseTokenAuth::Concerns::User
+
+  def display_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
