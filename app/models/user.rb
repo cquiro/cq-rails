@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :rents_count, numericality: { greater_than_or_equal_to: 0 }
   validates :locale, presence: true
 
+  enum locale: { en: 0, es: 1 }
+
   include DeviseTokenAuth::Concerns::User
 
   def display_name

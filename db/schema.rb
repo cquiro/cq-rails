@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_142547) do
     t.boolean "allow_password_change", default: false
     t.json "tokens"
     t.integer "rents_count", default: 0, null: false
-    t.string "locale", default: "en", null: false
+    t.integer "locale", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
