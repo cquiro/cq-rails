@@ -7,6 +7,7 @@ module Api
 
       def create
         new_rent = user.rents.new(create_rent_params)
+        authorize new_rent
 
         if new_rent.save
           RentsMailer.send_new_rent_email(new_rent.id).deliver_later
