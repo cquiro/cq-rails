@@ -3,14 +3,12 @@ class AddRentsCountToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :rents_count, :integer, default: 0, null: false
 
     reversible do |dir|
-      dir.up { data }
+      dir.up { reset_users_rents_counter }
     end
   end
 
-  def data
-    ids = Set.new
-
-    Rent.find_each { |r| ids << r.user_id }
+  def reset_users_rents_counter
+    ids = Rent.all.map(&:user_id)
 
     ids.each do |user_id|
       User.reset_counters(user_id, :rents)
