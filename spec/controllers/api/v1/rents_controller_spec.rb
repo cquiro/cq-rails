@@ -59,7 +59,7 @@ describe Api::V1::RentsController do
       it { expect(response).to have_http_status(:unauthorized) }
 
       it 'returns an empty response' do
-        expect(response_body).to be_empty
+        expect(response_body).to be_nil
       end
     end
   end
