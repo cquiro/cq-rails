@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   api_version(module: 'Api::V1', path: { value: 'api/v1' }, defaults: { format: :json })  do
-    resources :books, only: [:index, :show]
+    resources :books, only: [:index, :show] do
+      get 'info_by_isbn', to: 'book_info#show', on: :collection
+    end
 
     resources :book_suggestions, only: [:create]
 
