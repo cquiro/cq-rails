@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_24_124835) do
+ActiveRecord::Schema.define(version: 2018_09_26_150405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_124835) do
     t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "returned_at"
     t.index ["book_id"], name: "index_rents_on_book_id"
     t.index ["user_id"], name: "index_rents_on_user_id"
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_124835) do
     t.string "uid", default: "", null: false
     t.boolean "allow_password_change", default: false
     t.json "tokens"
+    t.integer "rents_count", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
