@@ -9,6 +9,7 @@ module Api
         new_rent = user.rents.new(create_rent_params)
 
         if new_rent.save
+          RentsMailer.send_new_rent_email(new_rent.id).deliver_later
           render json: new_rent, serializer: RentSerializer, status: :created
         else
           render json: { errors: new_rent.errors }, status: :unprocessable_entity

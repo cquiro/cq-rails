@@ -28,3 +28,6 @@
 
 # Ignore vim swap files.
 *.swp
+
+# Ignore redis files
+dump.rdb

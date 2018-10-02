@@ -1,0 +1,27 @@
+p
+  = t('rents_mailer.new_rent.hello', first_name: @user.first_name)
+
+p
+  = t('rents_mailer.new_rent.date', rent_date: @rent.created_at.strftime("%F"))
+
+p
+  = t('rents_mailer.new_rent.book.details')
+ul
+  li
+    = t('rents_mailer.new_rent.book.title', title: @book.title)
+  li
+    = t('rents_mailer.new_rent.book.author', author: @book.author)
+  li
+    = t('rents_mailer.new_rent.book.genre', genre: @book.genre)
+  li
+    = t('rents_mailer.new_rent.book.publisher', publisher: @book.publisher)
+  li
+    = t('rents_mailer.new_rent.book.year', year: @book.year)
+
+p
+  = t('rents_mailer.rent_dates', start_date: @rent.start_date.strftime("%F"),
+                                 end_date: @rent.end_date.strftime("%F"))
+p
+  = t('rents_mailer.regards')
+  br
+  = t('rents_mailer.signature')

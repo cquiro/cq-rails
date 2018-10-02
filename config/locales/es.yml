@@ -1,0 +1,16 @@
+es:
+  rents_mailer:
+    new_rent:
+      book:
+        details: 'Los datos del libro que rentaste son:'
+        title: 'Título: %{title}'
+        author: 'Autor: %{author}'
+        genre: 'Género: %{genre}'
+        publisher: 'Editorial: %{publisher}'
+        year: 'Año: %{year}'
+      date: 'Se ha registrado una nueva renta a tu nombre con fecha del %{rent_date}.'
+      hello: '¡Hola, %{first_name}!'
+      subject: '¡Has rentado un libro!'
+    regards: '¡Saludos!'
+    rent_dates: 'Recuerda que puedes tener el libro desde %{start_date} y debes retornarlo a más tardar el %{end_date}.'
+    signature: 'El equipo de WBooks'
