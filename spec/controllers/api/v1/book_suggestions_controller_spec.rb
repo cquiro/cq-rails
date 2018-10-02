@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe Api::V1::BookSuggestionsController do
-  include_context 'Authenticated User'
-
   describe 'POST #create' do
     let(:bs_attrs) { attributes_for(:book_suggestion) }
 
     context 'when logged in user creates a book suggestion' do
+      include_context 'Authenticated User'
+
       before { post :create, params: { book_suggestion: bs_attrs } }
 
       it { expect(response).to have_http_status(:created) }
@@ -21,10 +21,7 @@ describe Api::V1::BookSuggestionsController do
     end
 
     context 'when visitor creates a book suggestion' do
-      before do
-        request.headers['HTTP_ACCESS_TOKEN'] = nil
-        post :create, params: { book_suggestion: bs_attrs.merge(user_id: nil) }
-      end
+      before { post :create, params: { book_suggestion: bs_attrs } }
 
       it { expect(response).to have_http_status(:created) }
 
@@ -34,6 +31,16 @@ describe Api::V1::BookSuggestionsController do
 
       it 'it does not return a user' do
         expect(response_body['user']).to be_nil
+      end
+    end
+
+    context 'when required attributes are missing' do
+      before { post :create, params: { book_suggestion: bs_attrs.merge(author: nil) } }
+
+      it { expect(response).to have_http_status(:unprocessable_entity) }
+
+      it 'returns a book_suggestion with the bs_attrs' do
+        expect(response_body['errors']['author']).to include 'can\'t be blank'
       end
     end
   end
