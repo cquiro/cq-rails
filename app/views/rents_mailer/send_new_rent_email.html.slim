@@ -19,8 +19,8 @@ ul
     = t('rents_mailer.new_rent.book.year', year: @book.year)
 
 p
-  = t('rents_mailer.rent_dates', start_date: @rent.start_date.strftime("%F"),
-                                 end_date: @rent.end_date.strftime("%F"))
+  = t('rents_mailer.new_rent.rent_dates', start_date: @rent.start_date.strftime("%F"),
+                                          end_date: @rent.end_date.strftime("%F"))
 p
   = t('rents_mailer.regards')
   br
