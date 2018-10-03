@@ -1,0 +1,3 @@
+:schedule:
+  rent_due_notifier:
+    cron: '0 9 * * * Etc/GMT-3'
