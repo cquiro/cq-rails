@@ -23,25 +23,44 @@ describe Api::V1::RentsController do
     let(:book) { create(:book) }
     let(:rent_attrs) { attributes_for(:rent) }
 
-    before do
-      post :create, params: {
-        user_id: user.id,
-        rent: rent_attrs.merge(book_id: book.id)
-      }
+    context 'when current_user creates own rent' do
+      before do
+        post :create, params: {
+          user_id: user.id,
+          rent: rent_attrs.merge(book_id: book.id)
+        }
+      end
+
+      it { expect(response).to have_http_status(:created) }
+
+      it 'returns the correct book' do
+        expect(response_body['book']['id']).to eq book.id
+      end
+
+      it 'returns the correct user' do
+        expect(response_body['user']['id']).to eq user.id
+      end
+
+      it 'returns a rent with the rent_attrs' do
+        expect(response_body['start_date'].to_date).to eq rent_attrs[:start_date]
+      end
     end
 
-    it { expect(response).to have_http_status(:created) }
+    context 'when current_user creates rent for other user' do
+      let(:not_current_user) { create(:user) }
 
-    it 'returns the correct book' do
-      expect(response_body['book']['id']).to eq book.id
-    end
+      before do
+        post :create, params: {
+          user_id: not_current_user.id,
+          rent: rent_attrs.merge(book_id: book.id)
+        }
+      end
 
-    it 'returns the correct user' do
-      expect(response_body['user']['id']).to eq user.id
-    end
+      it { expect(response).to have_http_status(:unauthorized) }
 
-    it 'returns a rent with the rent_attrs' do
-      expect(response_body['start_date'].to_date).to eq rent_attrs[:start_date]
+      it 'returns an empty response' do
+        expect(response_body).to be_nil
+      end
     end
   end
 end
