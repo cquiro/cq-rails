@@ -10,4 +10,8 @@ class User < ApplicationRecord
   enum locale: { en: 0, es: 1 }
 
   include DeviseTokenAuth::Concerns::User
+
+  def display_name
+    "#{first_name} #{last_name}"
+  end
 end
