@@ -20,13 +20,12 @@ class OpenLibraryService
   end
 
   def formatted_response(info)
-    { 
-      ISBN: "#{isbn}",
-      title: info["ISBN:#{isbn}"]["title"],
-      subtitle: info["ISBN:#{isbn}"]["subtitle"],
-      number_of_pages: info["ISBN:#{isbn}"]["number_of_pages"],
-      authors: info["ISBN:#{isbn}"]["authors"].map! { |author| author["name"] }
+    {
+      ISBN: isbn,
+      title: info["ISBN:#{isbn}"]['title'],
+      subtitle: info["ISBN:#{isbn}"]['subtitle'],
+      number_of_pages: info["ISBN:#{isbn}"]['number_of_pages'],
+      authors: info["ISBN:#{isbn}"]['authors'].map! { |author| author['name'] }
     }
-
   end
 end
