@@ -1,0 +1,10 @@
+p
+  = t('rents_mailer.hello', first_name: @user.first_name)
+
+p
+  = t('rents_mailer.rent_due.body', book_title: @book.title)
+
+p
+  = t('rents_mailer.regards')
+  br
+  = t('rents_mailer.signature')

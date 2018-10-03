@@ -1,5 +1,6 @@
 en:
   rents_mailer:
+    hello: 'Hello, %{first_name}!'
     new_rent:
       book:
         details: 'The details of the book you rented are:'
@@ -9,8 +10,10 @@ en:
         publisher: 'Publisher: %{publisher}'
         year: 'Year: %{year}'
       date: 'A new rent was registered to your name on %{rent_date}.'
-      hello: 'Hello, %{first_name}!'
       subject: 'You rented a book!'
+      rent_dates: 'Remember you can keep the book from %{start_date} until %{end_date}.'
     regards: 'Regards!'
-    rent_dates: 'Remember you can keep the book from %{start_date} until %{end_date}.'
+    rent_due:
+      body: 'Today is the due date for you to return the book "%{book_title}". We will be waiting for you!'
+      subject: 'Remember to return your book today!'
     signature: 'The WBooks Team'
