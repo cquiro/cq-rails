@@ -5,7 +5,6 @@ module Api
 
       def create
         new_bs = new_book_suggestion
-
         if new_bs.save
           render json: new_bs, serializer: BookSuggestionSerializer, status: :created
         else
