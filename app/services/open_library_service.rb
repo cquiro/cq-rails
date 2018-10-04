@@ -2,7 +2,7 @@ class OpenLibraryService
   include HTTParty
   base_uri Rails.application.credentials.open_library[:base_uri]
 
-  GET_BOOKS = '/api/books'
+  GET_BOOKS = '/api/books'.freeze
 
   def initialize(isbn)
     @isbn = isbn
@@ -10,7 +10,6 @@ class OpenLibraryService
 
   def book_info
     info = send_request.parsed_response
-    byebug
     formatted_response(info)
   end
 
