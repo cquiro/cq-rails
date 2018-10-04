@@ -1,6 +1,8 @@
 class OpenLibraryService
   include HTTParty
-  base_uri 'https://openlibrary.org'
+  base_uri Rails.application.credentials.open_library[:base_uri]
+
+  GET_BOOKS = '/api/books'
 
   def initialize(isbn)
     @isbn = isbn
@@ -8,6 +10,7 @@ class OpenLibraryService
 
   def book_info
     info = send_request.parsed_response
+    byebug
     formatted_response(info)
   end
 
@@ -16,7 +19,7 @@ class OpenLibraryService
   attr_reader :isbn
 
   def send_request
-    self.class.get('/api/books', query: { bibkeys: "ISBN:#{isbn}", format: 'json', jscmd: 'data' })
+    self.class.get(GET_BOOKS, query: { bibkeys: "ISBN:#{isbn}", format: 'json', jscmd: 'data' })
   end
 
   def formatted_response(info)
