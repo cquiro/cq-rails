@@ -11,6 +11,7 @@ POST | /users | Sign up | { :first_name, :last_name, :email, :password, :passwor
 POST | /users/sign_in | Sign in | { :email, :password }
 GET  | /books | Get a list of books | NA
 GET  | /books/:id | Get a book | NA
+GET  | /books/info_by_isbn | Get a book's info by using its ISBN | { :isbn }
 GET  | /users/:user_id/rents | Get a list of the user's rents | NA
 POST  | /users/:user_id/rents | Create a rent for the user | { :book_id, :start_date, :end_date, :returned_at }
 POST  | /book_suggestions | Create a book suggestion | { :synopsis, :price, :author, :title, :link, :publisher, :year }

@@ -22,6 +22,7 @@ gem 'sidekiq', '~> 4.1.2'
 gem 'slim-rails', github: 'slim-template/slim-rails'
 gem 'activeadmin', '~> 1.3.1'
 gem 'pundit', '~> 2.0.0'
+gem 'httparty', '~> 0.16.2'
 
 group :development, :test do
   gem 'faker', '~> 1.9.1'
