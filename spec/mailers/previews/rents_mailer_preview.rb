@@ -5,4 +5,10 @@ class RentsMailerPreview < ActionMailer::Preview
 
     RentsMailer.send_new_rent_email(rent.id)
   end
+
+  def send_rent_due_email
+    rent = Rent.first
+
+    RentsMailer.send_rent_due_email(rent.id)
+  end
 end
